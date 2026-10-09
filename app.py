@@ -77,6 +77,20 @@ def home():
     data = load_portfolio_data()
     return render_template('index.html', data=data)
 
+@app.route('/download-cv')
+@app.route('/resume.pdf')
+def download_cv():
+    """Serve the CV / Resume PDF directly as a download."""
+    cv_dir = os.path.join(BASE_DIR, 'static', 'documents')
+    filename = 'Md_Asadullahil_Galib_CV.pdf'
+    if not os.path.exists(os.path.join(cv_dir, filename)):
+        try:
+            from generate_cv import create_resume
+            create_resume()
+        except Exception as e:
+            logging.error(f"Error generating CV: {e}")
+    return send_from_directory(cv_dir, filename, as_attachment=True, download_name='Md_Asadullahil_Galib_CV.pdf')
+
 @app.route('/api/portfolio', methods=['GET'])
 def get_portfolio_api():
     """Retrieve current portfolio JSON data."""

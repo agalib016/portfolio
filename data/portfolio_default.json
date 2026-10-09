@@ -32,7 +32,7 @@
       "text": "Get In Touch",
       "link": "#contact"
     },
-    "resume_url": "#about"
+    "resume_url": "/download-cv"
   },
   "stats": [
     {
@@ -220,6 +220,19 @@
     }
   ],
   "projects": [
+    {
+      "id": "proj-orbisastra",
+      "title": "OrbisAstra — Solar System & 3D Earth Explorer",
+      "category": "Python & Web",
+      "badge": "Live Production",
+      "description": "An interactive 3D astronomical simulation featuring real-time orbital visualization of the Solar System, 3D interactive Earth globe with wonders, continents, and oceans powered by Three.js, Globe.gl, and WebGL.",
+      "image": "/static/images/orbisastra.png",
+      "tags": ["Three.js", "Globe.gl", "WebGL", "JavaScript", "HTML5/CSS3", "Vercel"],
+      "live_url": "https://orbisastra.vercel.app/",
+      "github_url": "https://github.com/agalib016",
+      "featured": true,
+      "metrics": "3D Interactive Simulation"
+    },
     {
       "id": "proj-1",
       "title": "Python Web Application Portal",

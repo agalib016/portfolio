@@ -30,7 +30,7 @@
         <nav class="nav-container">
             <a href="#hero" class="nav-brand" id="nav-brand">
                 <span class="brand-symbol" id="brand-symbol">{{ data.brand.logo_symbol if data.brand else '⚡' }}</span>
-                <span class="brand-text" id="brand-text">{{ data.brand.logo_text if data.brand else 'Alex.dev' }}</span>
+                <span class="brand-text" id="brand-text">{{ data.brand.logo_text if data.brand else 'Galib.dev' }}</span>
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -39,27 +39,33 @@
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#testimonials" class="nav-link">Reviews</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
-            <!-- Navbar Actions -->
+            <!-- Navbar Action Buttons -->
             <div class="nav-actions">
                 <!-- Theme Toggle Button -->
-                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
+                <button type="button" class="nav-icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
                     <span class="theme-icon icon-sun">☀️</span>
                     <span class="theme-icon icon-moon">🌙</span>
                 </button>
 
-                <!-- Live Editor Button -->
-                <button type="button" class="btn-editor-open" id="open-editor-btn" title="Open Website Editor">
-                    <span class="editor-icon">✏️</span>
-                    <span class="editor-btn-text">Edit Site</span>
+                <!-- CV Download Button (Single Word) -->
+                <a href="/download-cv" download="Md_Asadullahil_Galib_CV.pdf" class="nav-btn nav-btn-outline" id="nav-cv-btn" title="Download Resume / CV as PDF">
+                    <span class="nav-btn-icon">📄</span>
+                    <span class="nav-btn-text">CV</span>
+                </a>
+
+                <!-- Live Editor Button (Single Word) -->
+                <button type="button" class="nav-btn nav-btn-subtle" id="open-editor-btn" title="Open Website Editor">
+                    <span class="nav-btn-icon">✏️</span>
+                    <span class="nav-btn-text">Edit</span>
                 </button>
 
-                <!-- CTA Button -->
-                <a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+                <!-- Contact CTA Button (Single Word) -->
+                <a href="#contact" class="nav-btn nav-btn-primary" id="nav-contact-btn" title="Contact Me">
+                    <span class="nav-btn-text">Contact</span>
+                </a>
 
                 <!-- Mobile Hamburger Button -->
                 <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
@@ -103,15 +109,15 @@
                     <!-- Hero CTA Buttons -->
                     <div class="hero-actions">
                         <a href="{{ data.hero.cta_primary.link if data.hero and data.hero.cta_primary else '#projects' }}" class="btn btn-primary btn-glow">
-                            <span>{{ data.hero.cta_primary.text if data.hero and data.hero.cta_primary else 'Explore Projects' }}</span>
+                            <span>Projects</span>
                             <span class="btn-arrow">→</span>
                         </a>
                         <a href="{{ data.hero.cta_secondary.link if data.hero and data.hero.cta_secondary else '#contact' }}" class="btn btn-outline">
-                            <span>{{ data.hero.cta_secondary.text if data.hero and data.hero.cta_secondary else 'Get In Touch' }}</span>
+                            <span>Contact</span>
                         </a>
-                        <a href="#about" class="btn btn-ghost" id="hero-resume-btn">
+                        <a href="/download-cv" download="Md_Asadullahil_Galib_CV.pdf" class="btn btn-ghost" id="hero-resume-btn" title="Download Resume / CV directly as PDF">
                             <span class="icon">📄</span>
-                            <span>Resume</span>
+                            <span>CV</span>
                         </a>
                     </div>
 
@@ -220,8 +226,12 @@ galib = Developer()
                                 {% endfor %}
                             </div>
 
-                            <div class="profile-card-footer">
-                                <a href="#contact" class="btn btn-outline btn-sm btn-full">Schedule a Conversation</a>
+                            <div class="profile-card-footer" style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                <a href="/download-cv" download="Md_Asadullahil_Galib_CV.pdf" class="btn btn-primary btn-sm btn-full" id="about-cv-btn" title="Download CV as PDF">
+                                    <span class="icon">📄</span>
+                                    <span>Resume</span>
+                                </a>
+                                <a href="#contact" class="btn btn-outline btn-sm btn-full">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -250,8 +260,12 @@ galib = Developer()
                             </div>
 
                             <div class="story-actions">
-                                <a href="#projects" class="btn btn-primary">Browse My Work</a>
-                                <a href="#contact" class="btn btn-ghost">Hire Me Directly</a>
+                                <a href="#projects" class="btn btn-primary">Projects</a>
+                                <a href="/download-cv" download="Md_Asadullahil_Galib_CV.pdf" class="btn btn-outline" id="about-story-cv-btn" title="Download Resume / CV as PDF">
+                                    <span class="icon">📄</span>
+                                    <span>Resume</span>
+                                </a>
+                                <a href="#contact" class="btn btn-ghost">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -325,7 +339,7 @@ galib = Developer()
                             <div class="project-badge">{{ proj.badge }}</div>
                             <div class="project-overlay">
                                 <button type="button" class="btn-quick-view" data-project-id="{{ proj.id }}">
-                                    <span>🔍 Quick View</span>
+                                    <span>🔍 Preview</span>
                                 </button>
                             </div>
                         </div>
@@ -350,13 +364,13 @@ galib = Developer()
                             <div class="project-actions">
                                 {% if proj.live_url and proj.live_url != '#' %}
                                 <a href="{{ proj.live_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                                    <span>Live Demo</span>
+                                    <span>Live</span>
                                     <span class="icon">↗</span>
                                 </a>
                                 {% endif %}
                                 {% if proj.github_url and proj.github_url != '#' %}
                                 <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-                                    <span>Source Code</span>
+                                    <span>GitHub</span>
                                     <span class="icon">↗</span>
                                 </a>
                                 {% endif %}
