@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "title": "Md. Asadullahil Galib | Python Web Developer & CSE Graduate",
+    "description": "Portfolio of Md. Asadullahil Galib - Computer Science & Engineering graduate from Varendra University, specializing in Python web applications, C/C++, Java, PHP, MS SQL Server, and Arduino/ESP32 IoT projects.",
+    "keywords": "Md. Asadullahil Galib, Galib, Python Web Developer, CSE, Varendra University, C, C++, Java, PHP, MS SQL Server, Arduino, ESP32, Natore, Bangladesh"
+  },
+  "brand": {
+    "logo_symbol": "⚡",
+    "logo_text": "Galib.dev",
+    "tagline": "Python Web Developer & Computer Science Engineer"
+  },
+  "availability": {
+    "status": "Available for Python & Web Development Roles",
+    "is_available": true
+  },
+  "hero": {
+    "greeting": "Hello, world! I am",
+    "name": "Md. Asadullahil Galib",
+    "roles": [
+      "Python Web Application Developer",
+      "Computer Science & Engineering Graduate",
+      "Software Developer (C, C++, Java, PHP)",
+      "IoT & Embedded Creator (Arduino / ESP32)",
+      "Database & Problem Solver"
+    ],
+    "bio": "I build modern web applications using Python, engineer robust software with C, C++, Java and PHP, design MS SQL Server databases, and develop smart IoT prototypes with Arduino and ESP32.",
+    "cta_primary": {
+      "text": "Explore Projects",
+      "link": "#projects"
+    },
+    "cta_secondary": {
+      "text": "Get In Touch",
+      "link": "#contact"
+    },
+    "resume_url": "#about"
+  },
+  "stats": [
+    {
+      "value": "60 WPM",
+      "label": "Typing Speed"
+    },
+    {
+      "value": "3.52",
+      "label": "B.Sc. CSE CGPA"
+    },
+    {
+      "value": "5.00",
+      "label": "HSC & SSC GPA"
+    },
+    {
+      "value": "Python & IoT",
+      "label": "Core Focus"
+    }
+  ],
+  "about": {
+    "headline": "Bridging Python web engineering, software development, and embedded IoT innovation.",
+    "paragraphs": [
+      "I am a Computer Science & Engineering graduate from Varendra University with a strong academic foundation and hands-on technical versatility. My primary focus is building full-stack web applications using the Python programming language along with modern HTML, CSS, and JavaScript.",
+      "Beyond Python web development, I have extensive working experience in C, C++, Java, and PHP, complemented by robust database design and query optimization in MS SQL Server. I am also proficient in everyday professional productivity suites including MS Word, MS Excel, and MS PowerPoint.",
+      "I have a deep passion for electronics and hardware innovation, actively designing and building IoT and embedded projects utilizing Arduino and ESP32 microcontrollers.",
+      "With a high typing speed of 60 WPM, strong analytical discipline, and a consistent track record of academic excellence (GPA 5.00 in both SSC & HSC, and CGPA 3.52 in B.Sc. CSE), I am committed to delivering clean, efficient, and impactful solutions."
+    ],
+    "avatar": "/static/images/profile.png",
+    "quick_info": [
+      { "label": "Full Name", "value": "Md. Asadullahil Galib" },
+      { "label": "Address", "value": "Agran, Baraigram, Natore, Bangladesh" },
+      { "label": "Nationality", "value": "Bangladeshi" },
+      { "label": "Degree", "value": "B.Sc. in CSE, Varendra University (CGPA 3.52)" },
+      { "label": "Primary Expertise", "value": "Python Web Apps, C/C++, Java, PHP, MS SQL" },
+      { "label": "IoT & Hardware", "value": "Arduino & ESP32 Microcontroller Projects" },
+      { "label": "Typing Speed", "value": "60 Words Per Minute (WPM)" },
+      { "label": "Office Tools", "value": "MS Word, MS Excel, MS PowerPoint" },
+      { "label": "Email", "value": "agalib016@gmail.com" },
+      { "label": "Phone", "value": "+8801704680687" },
+      { "label": "Languages", "value": "English (Fluent), Bangla (Fluent), Hindi, Urdu" }
+    ],
+    "highlights": [
+      "Python Web Application Engineering & Architecture",
+      "Strong Programming Foundations: C, C++, Java, PHP",
+      "Relational Database Engineering: MS SQL Server",
+      "Hardware Prototyping & IoT: Arduino & ESP32 Microcontrollers",
+      "B.Sc. in Computer Science & Engineering (CGPA 3.52)",
+      "Flawless Academic History: SSC & HSC GPA 5.00 (Rajshahi Board)",
+      "High Productive Output with 60 WPM Typing Speed",
+      "Office Productivity: MS Word, MS Excel, MS PowerPoint"
+    ]
+  },
+  "skills": {
+    "categories": ["All", "Python & Web", "Core Languages", "Databases & Office", "Embedded & IoT"],
+    "list": [
+      {
+        "name": "Python Web Applications",
+        "category": "Python & Web",
+        "icon": "🐍",
+        "level": 94,
+        "description": "Flask, Web Apps, Automation, OOP, Scripting, REST APIs"
+      },
+      {
+        "name": "HTML5 & Modern CSS",
+        "category": "Python & Web",
+        "icon": "🎨",
+        "level": 92,
+        "description": "Semantic HTML, Responsive Layouts, Flexbox, CSS Grid, Modern Aesthetics"
+      },
+      {
+        "name": "JavaScript",
+        "category": "Python & Web",
+        "icon": "⚡",
+        "level": 88,
+        "description": "DOM Manipulation, ES6+, Interactive UI, Event Handling, Fetch API"
+      },
+      {
+        "name": "PHP",
+        "category": "Python & Web",
+        "icon": "🐘",
+        "level": 85,
+        "description": "Server-Side Scripting, Dynamic Web Pages, Backend Processing"
+      },
+      {
+        "name": "C & C++",
+        "category": "Core Languages",
+        "icon": "⚙️",
+        "level": 88,
+        "description": "System Foundations, Data Structures, Algorithms, Memory Concepts"
+      },
+      {
+        "name": "Java",
+        "category": "Core Languages",
+        "icon": "☕",
+        "level": 86,
+        "description": "Object-Oriented Programming (OOP), Multithreading, Core Architecture"
+      },
+      {
+        "name": "Database (MS SQL Server)",
+        "category": "Databases & Office",
+        "icon": "🗄️",
+        "level": 89,
+        "description": "Relational DB Design, Schema Modeling, T-SQL, Complex Queries, Joins"
+      },
+      {
+        "name": "Arduino & ESP32 (IoT)",
+        "category": "Embedded & IoT",
+        "icon": "🔌",
+        "level": 88,
+        "description": "Microcontroller Programming, Sensors, Actuators, Wi-Fi/Bluetooth IoT Prototypes"
+      },
+      {
+        "name": "MS Office (Word, Excel, PowerPoint)",
+        "category": "Databases & Office",
+        "icon": "📊",
+        "level": 92,
+        "description": "Advanced Documents in Word, Formulas/Data in Excel, Slides in PowerPoint"
+      },
+      {
+        "name": "Typing Speed (60 WPM)",
+        "category": "Databases & Office",
+        "icon": "⌨️",
+        "level": 90,
+        "description": "60 Words Per Minute touch typing with high accuracy and turnaround speed"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "exp-bsc",
+      "type": "education",
+      "role": "B.Sc. in Computer Science & Engineering (CSE)",
+      "company": "Varendra University",
+      "period": "Passing Year: 2026",
+      "location": "Rajshahi, Bangladesh",
+      "description": "Undergraduate degree in Computer Science and Engineering with an academic result of CGPA 3.52.",
+      "achievements": [
+        "Earned CGPA 3.52 across core software engineering, programming, and system design courses.",
+        "Mastered Data Structures, Algorithms, Software Engineering, MS SQL Server, and Computer Networks.",
+        "Developed web applications and practical embedded IoT prototypes."
+      ],
+      "technologies": ["Python", "C/C++", "Java", "MS SQL Server", "Algorithms", "Web Development"]
+    },
+    {
+      "id": "exp-hsc",
+      "type": "education",
+      "role": "Higher Secondary Certificate (HSC) — Science",
+      "company": "Banpara College",
+      "period": "Passing Year: 2022",
+      "location": "Banpara, Natore (Rajshahi Board)",
+      "description": "Higher secondary education in Science under Rajshahi Education Board, earning a top-tier result of GPA 5.00.",
+      "achievements": [
+        "Achieved GPA 5.00 (Golden Distinction) under Rajshahi Education Board.",
+        "Built solid foundations in Higher Mathematics, Physics, Chemistry, and Information & Communication Technology (ICT)."
+      ],
+      "technologies": ["Higher Mathematics", "Physics", "Chemistry", "ICT"]
+    },
+    {
+      "id": "exp-ssc",
+      "type": "education",
+      "role": "Secondary School Certificate (SSC) — Science",
+      "company": "Agran High School",
+      "period": "Passing Year: 2019",
+      "location": "Agran, Baraigram, Natore (Rajshahi Board)",
+      "description": "Secondary school education in Science under Rajshahi Education Board, graduating with a perfect result of GPA 5.00.",
+      "achievements": [
+        "Achieved GPA 5.00 in all subjects under Rajshahi Education Board.",
+        "Demonstrated consistent academic leadership and passion for scientific study."
+      ],
+      "technologies": ["General Science", "Mathematics", "Computer Studies"]
+    },
+    {
+      "id": "exp-dev",
+      "type": "work",
+      "role": "Python Web & Embedded Software Developer",
+      "company": "Independent & Academic Projects",
+      "period": "2023 - Present",
+      "location": "Bangladesh / Remote",
+      "description": "Developing customized Python web applications, integrating MS SQL Server databases, and prototyping smart IoT devices with Arduino and ESP32.",
+      "achievements": [
+        "Constructed responsive web interfaces with Python backends and clean modular code.",
+        "Implemented embedded microcontroller solutions combining hardware sensors with software controls."
+      ],
+      "technologies": ["Python", "Flask", "C/C++", "Java", "PHP", "MS SQL Server", "Arduino", "ESP32", "HTML/CSS/JS"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Python Web Application Portal",
+      "category": "Python & Web",
+      "badge": "Web Application",
+      "description": "A dynamic full-stack web application built with Python backend logic, responsive modern styling, and database-driven data management.",
+      "image": "/static/images/project1.png",
+      "tags": ["Python", "Flask", "HTML5", "CSS3", "JavaScript"],
+      "live_url": "#",
+      "github_url": "https://github.com/agalib016",
+      "featured": true,
+      "metrics": "Clean Architecture"
+    },
+    {
+      "id": "proj-2",
+      "title": "Smart IoT & Sensor Monitoring with ESP32 / Arduino",
+      "category": "Embedded & IoT",
+      "badge": "Hardware & IoT",
+      "description": "An embedded microcontroller system using ESP32 and Arduino for real-time telemetry, sensor data acquisition, and automated device control.",
+      "image": "/static/images/project2.png",
+      "tags": ["ESP32", "Arduino", "C/C++", "Sensors", "IoT"],
+      "live_url": "#",
+      "github_url": "https://github.com/agalib016",
+      "featured": true,
+      "metrics": "Hardware Ready"
+    },
+    {
+      "id": "proj-3",
+      "title": "MS SQL Server Enterprise Database System",
+      "category": "Databases & Office",
+      "badge": "Database Design",
+      "description": "A structured relational database architecture developed with MS SQL Server, featuring normalized tables, stored queries, and reliable data integrity.",
+      "image": "/static/images/project3.png",
+      "tags": ["MS SQL Server", "SQL", "Database Design", "T-SQL"],
+      "live_url": "#",
+      "github_url": "https://github.com/agalib016",
+      "featured": true,
+      "metrics": "Normalized Schema"
+    }
+  ],
+  "services": [
+    {
+      "id": "srv-1",
+      "icon": "🐍",
+      "title": "Python Web Application Development",
+      "description": "Building full-featured web applications utilizing Python for backend logic, routing, authentication, and responsive user interfaces.",
+      "features": ["Python Web Architecture", "REST API Integration", "Responsive Frontends"]
+    },
+    {
+      "id": "srv-2",
+      "icon": "⚙️",
+      "title": "Software Development (C, C++, Java, PHP)",
+      "description": "Implementing structured desktop, server, and web software using core object-oriented principles and algorithmic efficiency.",
+      "features": ["Object-Oriented Design", "Clean Code Structure", "Multi-Language Adaptability"]
+    },
+    {
+      "id": "srv-3",
+      "icon": "🗄️",
+      "title": "Database Architecture with MS SQL Server",
+      "description": "Designing relational database schemas, establishing constraints, writing complex SQL queries, and optimizing table access.",
+      "features": ["MS SQL Server Modeling", "Relational Integrity", "Query Optimization"]
+    },
+    {
+      "id": "srv-4",
+      "icon": "🔌",
+      "title": "IoT & Microcontroller Prototyping (Arduino / ESP32)",
+      "description": "Designing and programming smart hardware solutions, sensor data collection, and connected microcontrollers for IoT innovations.",
+      "features": ["Arduino Prototyping", "ESP32 Wi-Fi/BT Systems", "Hardware-Software Sync"]
+    },
+    {
+      "id": "srv-5",
+      "icon": "📊",
+      "title": "Office Documentation & Fast Typing (60 WPM)",
+      "description": "High-efficiency data entry, professional report authoring in MS Word, analytical spreadsheets in MS Excel, and compelling slide presentations in MS PowerPoint.",
+      "features": ["60 WPM Rapid Turnaround", "MS Excel Data Modeling", "MS Word & PowerPoint Presentation"]
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Md. Asadullahil Galib demonstrates strong analytical thinking, dedication to software craftsmanship, and academic excellence throughout his CSE studies.",
+      "author": "Academic Faculty",
+      "role": "Dept. of Computer Science & Engineering",
+      "avatar": "VU",
+      "rating": 5
+    },
+    {
+      "quote": "Consistently delivers thoughtful solutions with disciplined attention to detail. A talented and hardworking engineer with a bright career ahead.",
+      "author": "Peer Collaborator",
+      "role": "Software Engineering Project Member",
+      "avatar": "PC",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "headline": "Let's Connect & Build Something Great Together",
+    "subtext": "I am open to software engineering opportunities, tech collaborations, and inquiries. Feel free to reach out directly through any of the channels below.",
+    "email": "agalib016@gmail.com",
+    "phone": "+8801704680687",
+    "location": "Agran, Baraigram, Natore, Bangladesh",
+    "calendar_url": "mailto:agalib016@gmail.com",
+    "response_time": "Usually replies promptly within 24 hours"
+  },
+  "social_links": [
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/md-asadullahil-galib-3a23523a5",
+      "handle": "md-asadullahil-galib"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/agalib016",
+      "handle": "@agalib016"
+    },
+    {
+      "name": "Twitter / X",
+      "icon": "twitter",
+      "url": "http://x.com/agalib360",
+      "handle": "@agalib360"
+    },
+    {
+      "name": "Telegram",
+      "icon": "telegram",
+      "url": "https://t.me/agalib360",
+      "handle": "@agalib360"
+    },
+    {
+      "name": "Facebook",
+      "icon": "facebook",
+      "url": "https://www.facebook.com/agalib360",
+      "handle": "agalib360"
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/agalib016/",
+      "handle": "@agalib016"
+    }
+  ]
+}

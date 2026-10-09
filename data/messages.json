@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "subject": "Hello",
+    "message": "Great website!",
+    "id": 1,
+    "received_at": "2026-10-08 16:54:21 UTC"
+  }
+]

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.meta.title if data.meta and data.meta.title else "Alex Rivera | Portfolio & Creative Technologist" }}</title>
+    <meta name="description" content="{{ data.meta.description if data.meta and data.meta.description else 'Modern developer portfolio crafted with Python' }}">
+    <meta name="keywords" content="{{ data.meta.keywords if data.meta and data.meta.keywords else 'developer, portfolio, python' }}">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+</head>
+<body class="theme-dark">
+    <!-- Ambient Background Lighting -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Live Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="site-header" id="header">
+        <nav class="nav-container">
+            <a href="#hero" class="nav-brand" id="nav-brand">
+                <span class="brand-symbol" id="brand-symbol">{{ data.brand.logo_symbol if data.brand else '⚡' }}</span>
+                <span class="brand-text" id="brand-text">{{ data.brand.logo_text if data.brand else 'Alex.dev' }}</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Navbar Actions -->
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle Theme">
+                    <span class="theme-icon icon-sun">☀️</span>
+                    <span class="theme-icon icon-moon">🌙</span>
+                </button>
+
+                <!-- Live Editor Button -->
+                <button type="button" class="btn-editor-open" id="open-editor-btn" title="Open Website Editor">
+                    <span class="editor-icon">✏️</span>
+                    <span class="editor-btn-text">Edit Site</span>
+                </button>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+
+                <!-- Mobile Hamburger Button -->
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- ================= HERO SECTION ================= -->
+        <section class="section hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <!-- Availability Badge -->
+                    <div class="hero-badge-wrap">
+                        <div class="status-badge" id="status-badge">
+                            <span class="status-dot"></span>
+                            <span class="status-text" id="hero-status-text">{{ data.availability.status if data.availability else 'Available for new projects' }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Greeting & Dynamic Typing Roles -->
+                    <div class="hero-heading-group">
+                        <span class="hero-greeting" id="hero-greeting">{{ data.hero.greeting if data.hero else 'Hello, world! I am' }}</span>
+                        <h1 class="hero-name" id="hero-name">{{ data.hero.name if data.hero else 'Alex Rivera' }}</h1>
+                        <div class="hero-roles-wrapper">
+                            <span class="hero-role-prefix">I am a </span>
+                            <span class="hero-role-typed" id="typed-role">Full Stack Engineer</span>
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+
+                    <!-- Bio Tagline -->
+                    <p class="hero-bio" id="hero-bio">
+                        {{ data.hero.bio if data.hero else 'I craft resilient backend systems and visually stunning web interfaces that captivate users.' }}
+                    </p>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="hero-actions">
+                        <a href="{{ data.hero.cta_primary.link if data.hero and data.hero.cta_primary else '#projects' }}" class="btn btn-primary btn-glow">
+                            <span>{{ data.hero.cta_primary.text if data.hero and data.hero.cta_primary else 'Explore Projects' }}</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="{{ data.hero.cta_secondary.link if data.hero and data.hero.cta_secondary else '#contact' }}" class="btn btn-outline">
+                            <span>{{ data.hero.cta_secondary.text if data.hero and data.hero.cta_secondary else 'Get In Touch' }}</span>
+                        </a>
+                        <a href="#about" class="btn btn-ghost" id="hero-resume-btn">
+                            <span class="icon">📄</span>
+                            <span>Resume</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Icons Strip -->
+                    <div class="hero-socials">
+                        <span class="socials-label">Connect:</span>
+                        <div class="socials-icons-row" id="hero-social-list">
+                            {% for link in data.social_links %}
+                            {% set ic = (link.icon or link.name or '') | lower %}
+                            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="{{ link.name }}">
+                                {% if 'github' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                {% elif 'linkedin' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.45 1.45 0 1 0 0-2.9 1.45 1.45 0 0 0 0 2.9m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+                                {% elif 'twitter' in ic or 'x' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                {% elif 'instagram' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                {% elif 'facebook' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                {% elif 'telegram' in ic %}
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                                {% else %}
+                                <span class="custom-icon">🔗</span>
+                                {% endif %}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Graphic / Terminal Preview -->
+                <div class="hero-visual">
+                    <div class="hero-card-3d" id="hero-card-3d">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="terminal-title">developer_profile.py</span>
+                            <span class="terminal-badge">Python 3.10</span>
+                        </div>
+                        <div class="terminal-body">
+                            <pre class="code-snippet"><code><span class="kw">class</span> <span class="cls">Developer</span>:
+    name = <span class="str">"{{ data.hero.name }}"</span>
+    focus = <span class="str">"Python Web Apps & Embedded IoT"</span>
+    languages = [<span class="str">"Python"</span>, <span class="str">"C/C++"</span>, <span class="str">"Java"</span>, <span class="str">"PHP"</span>, <span class="str">"JS"</span>]
+
+    <span class="kw">def</span> <span class="fn">capabilities</span>(self):
+        <span class="kw">return</span> {
+            <span class="str">"web_applications"</span>: <span class="str">"Python / Modern UI"</span>,
+            <span class="str">"iot_microcontrollers"</span>: <span class="str">"Arduino & ESP32"</span>,
+            <span class="str">"database"</span>: <span class="str">"MS SQL Server"</span>,
+            <span class="str">"typing_speed"</span>: <span class="str">"60 WPM"</span>
+        }
+
+<span class="comment"># Initialize profile</span>
+galib = Developer()
+<span class="fn">print</span>(galib.capabilities())</code></pre>
+                        </div>
+
+                        <!-- Stats Bar inside Hero Visual -->
+                        <div class="hero-stats-grid">
+                            {% for stat in data.stats %}
+                            <div class="stat-pill">
+                                <div class="stat-value">{{ stat.value }}</div>
+                                <div class="stat-label">{{ stat.label }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Driven by Curiosity, Powered by Code</h2>
+                    <p class="section-subtitle">Get to know the person and passion behind the creations.</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: Profile Glass Card -->
+                    <div class="about-card-col">
+                        <div class="profile-card">
+                            <div class="profile-avatar-wrap">
+                                <img src="{{ data.about.avatar if data.about and data.about.avatar else url_for('static', filename='images/avatar.png') }}" 
+                                     alt="{{ data.hero.name }}" 
+                                     class="profile-avatar" 
+                                     id="about-avatar-img">
+                                <span class="avatar-ring"></span>
+                            </div>
+                            <h3 class="profile-name" id="about-card-name">{{ data.hero.name }}</h3>
+                            <p class="profile-role" id="about-card-role">{{ data.brand.tagline }}</p>
+
+                            <div class="profile-info-list" id="about-quick-info">
+                                {% for item in data.about.quick_info %}
+                                <div class="info-row">
+                                    <span class="info-label">{{ item.label }}:</span>
+                                    <span class="info-value">{{ item.value }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="profile-card-footer">
+                                <a href="#contact" class="btn btn-outline btn-sm btn-full">Schedule a Conversation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story & Highlights -->
+                    <div class="about-story-col">
+                        <div class="about-story-content">
+                            <h3 class="story-headline" id="about-headline">{{ data.about.headline }}</h3>
+                            
+                            <div class="story-paragraphs" id="about-paragraphs">
+                                {% for p in data.about.paragraphs %}
+                                <p>{{ p }}</p>
+                                {% endfor %}
+                            </div>
+
+                            <div class="highlights-box">
+                                <h4 class="highlights-title">Core Principles & Highlights:</h4>
+                                <ul class="highlights-list" id="about-highlights-list">
+                                    {% for hl in data.about.highlights %}
+                                    <li class="highlight-item">
+                                        <span class="hl-check">✦</span>
+                                        <span class="hl-text">{{ hl }}</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="story-actions">
+                                <a href="#projects" class="btn btn-primary">Browse My Work</a>
+                                <a href="#contact" class="btn btn-ghost">Hire Me Directly</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS SECTION ================= -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Tech Stack</span>
+                    <h2 class="section-title">Skills & Capabilities</h2>
+                    <p class="section-subtitle">A curated set of technologies and tools I utilize to craft robust digital products.</p>
+                </div>
+
+                <!-- Skill Filter Tabs -->
+                <div class="filter-tabs" id="skill-filter-tabs">
+                    {% for cat in data.skills.categories %}
+                    <button type="button" class="tab-btn {{ 'active' if loop.first else '' }}" data-category="{{ cat }}">
+                        {{ cat }}
+                    </button>
+                    {% endfor %}
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="skills-grid" id="skills-grid">
+                    {% for skill in data.skills.list %}
+                    <div class="skill-card" data-category="{{ skill.category }}">
+                        <div class="skill-header">
+                            <span class="skill-icon">{{ skill.icon }}</span>
+                            <div class="skill-title-wrap">
+                                <h4 class="skill-name">{{ skill.name }}</h4>
+                                <span class="skill-category-badge">{{ skill.category }}</span>
+                            </div>
+                            <span class="skill-percentage">{{ skill.level }}%</span>
+                        </div>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar-fill" style="width: {{ skill.level }}%;"></div>
+                        </div>
+                        <p class="skill-desc">{{ skill.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS SECTION ================= -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Portfolio Showcase</span>
+                    <h2 class="section-title">Featured Works & Case Studies</h2>
+                    <p class="section-subtitle">Real-world applications, open-source projects, and digital experiments.</p>
+                </div>
+
+                <!-- Project Filter Buttons -->
+                <div class="filter-tabs" id="project-filter-tabs">
+                    <button type="button" class="tab-btn active" data-filter="all">All Projects</button>
+                    <button type="button" class="tab-btn" data-filter="Python & Web">Python & Web</button>
+                    <button type="button" class="tab-btn" data-filter="Embedded & IoT">Embedded & IoT</button>
+                    <button type="button" class="tab-btn" data-filter="Databases & Office">Databases & Office</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    {% for proj in data.projects %}
+                    <div class="project-card" data-category="{{ proj.category }}">
+                        <div class="project-thumbnail-wrap">
+                            <img src="{{ proj.image }}" alt="{{ proj.title }}" class="project-img" loading="lazy">
+                            <div class="project-badge">{{ proj.badge }}</div>
+                            <div class="project-overlay">
+                                <button type="button" class="btn-quick-view" data-project-id="{{ proj.id }}">
+                                    <span>🔍 Quick View</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-meta-top">
+                                <span class="proj-category">{{ proj.category }}</span>
+                                {% if proj.metrics %}
+                                <span class="proj-metric">{{ proj.metrics }}</span>
+                                {% endif %}
+                            </div>
+
+                            <h3 class="project-title">{{ proj.title }}</h3>
+                            <p class="project-desc">{{ proj.description }}</p>
+
+                            <div class="project-tags">
+                                {% for tag in proj.tags %}
+                                <span class="tag-pill">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+
+                            <div class="project-actions">
+                                {% if proj.live_url and proj.live_url != '#' %}
+                                <a href="{{ proj.live_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                    <span>Live Demo</span>
+                                    <span class="icon">↗</span>
+                                </a>
+                                {% endif %}
+                                {% if proj.github_url and proj.github_url != '#' %}
+                                <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+                                    <span>Source Code</span>
+                                    <span class="icon">↗</span>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE & TIMELINE SECTION ================= -->
+        <section class="section experience-section" id="experience">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Career Path</span>
+                    <h2 class="section-title">Experience & Background</h2>
+                    <p class="section-subtitle">Chronological record of roles, milestones, and education.</p>
+                </div>
+
+                <!-- Experience Type Toggle -->
+                <div class="filter-tabs" id="timeline-toggle-tabs">
+                    <button type="button" class="tab-btn active" data-type="all">All Journey</button>
+                    <button type="button" class="tab-btn" data-type="work">Work History</button>
+                    <button type="button" class="tab-btn" data-type="education">Education</button>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="timeline" id="experience-timeline">
+                    {% for item in data.experience %}
+                    <div class="timeline-item" data-type="{{ item.type }}">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                            <span class="marker-line"></span>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <div class="timeline-title-wrap">
+                                    <span class="timeline-type-pill {{ item.type }}">{{ 'Work' if item.type == 'work' else 'Education' }}</span>
+                                    <h3 class="timeline-role">{{ item.role }}</h3>
+                                    <h4 class="timeline-company">{{ item.company }}</h4>
+                                </div>
+                                <div class="timeline-meta">
+                                    <span class="timeline-period">📅 {{ item.period }}</span>
+                                    <span class="timeline-location">📍 {{ item.location }}</span>
+                                </div>
+                            </div>
+                            <p class="timeline-desc">{{ item.description }}</p>
+                            
+                            {% if item.achievements %}
+                            <div class="timeline-achievements">
+                                <h5>Key Highlights:</h5>
+                                <ul>
+                                    {% for ach in item.achievements %}
+                                    <li>{{ ach }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+
+                            {% if item.technologies %}
+                            <div class="timeline-tech">
+                                {% for tech in item.technologies %}
+                                <span class="tag-pill">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVICES SECTION ================= -->
+        <section class="section services-section" id="services">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">What I Offer</span>
+                    <h2 class="section-title">Specialized Services</h2>
+                    <p class="section-subtitle">Tailored technical expertise to bring your vision into reality.</p>
+                </div>
+
+                <div class="services-grid" id="services-grid">
+                    {% for srv in data.services %}
+                    <div class="service-card">
+                        <div class="service-icon-box">{{ srv.icon }}</div>
+                        <h3 class="service-title">{{ srv.title }}</h3>
+                        <p class="service-desc">{{ srv.description }}</p>
+                        
+                        <div class="service-features">
+                            {% for feat in srv.features %}
+                            <div class="feature-line">
+                                <span class="feature-dot">✓</span>
+                                <span>{{ feat }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TESTIMONIALS SECTION ================= -->
+        <section class="section testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Endorsements</span>
+                    <h2 class="section-title">What Clients & Colleagues Say</h2>
+                    <p class="section-subtitle">Feedback and testimonials from past collaborations.</p>
+                </div>
+
+                <div class="testimonials-grid" id="testimonials-grid">
+                    {% for test in data.testimonials %}
+                    <div class="testimonial-card">
+                        <div class="stars-rating">
+                            {% for i in range(test.rating) %}★{% endfor %}
+                        </div>
+                        <p class="testimonial-quote">“{{ test.quote }}”</p>
+                        
+                        <div class="testimonial-author-wrap">
+                            <div class="testimonial-avatar">{{ test.avatar }}</div>
+                            <div class="testimonial-details">
+                                <h4 class="author-name">{{ test.author }}</h4>
+                                <p class="author-role">{{ test.role }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">{{ data.contact.headline if data.contact else 'Let’s Build Something Amazing' }}</h2>
+                    <p class="section-subtitle">{{ data.contact.subtext if data.contact else 'Reach out to discuss opportunities, collaborations, or questions.' }}</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: Contact Details Cards -->
+                    <div class="contact-cards-col">
+                        <div class="contact-card">
+                            <div class="contact-card-icon">✉️</div>
+                            <div class="contact-card-info">
+                                <span class="label">Email Address</span>
+                                <a href="mailto:{{ data.contact.email }}" class="value link" id="contact-email-link">{{ data.contact.email }}</a>
+                            </div>
+                            <button type="button" class="copy-btn" data-copy="{{ data.contact.email }}" title="Copy Email">📋</button>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon">📞</div>
+                            <div class="contact-card-info">
+                                <span class="label">Phone / WhatsApp</span>
+                                <a href="tel:{{ data.contact.phone }}" class="value link" id="contact-phone-val">{{ data.contact.phone }}</a>
+                            </div>
+                            <button type="button" class="copy-btn" data-copy="{{ data.contact.phone }}" title="Copy Phone">📋</button>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon">📍</div>
+                            <div class="contact-card-info">
+                                <span class="label">Location</span>
+                                <span class="value" id="contact-location-val">{{ data.contact.location }}</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-card-icon">⚡</div>
+                            <div class="contact-card-info">
+                                <span class="label">Availability & Response Time</span>
+                                <span class="value">{{ data.contact.response_time }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Buttons Strip -->
+                        <div class="contact-social-pills">
+                            <span class="social-title">Social Profiles:</span>
+                            <div class="pills-row">
+                                {% for s in data.social_links %}
+                                {% set ic = (s.icon or s.name or '') | lower %}
+                                <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" class="pill-link" title="{{ s.name }}">
+                                    <span class="pill-icon" style="display: inline-flex; align-items: center; margin-right: 2px;">
+                                        {% if 'github' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                        {% elif 'linkedin' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.45 1.45 0 1 0 0-2.9 1.45 1.45 0 0 0 0 2.9m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+                                        {% elif 'twitter' in ic or 'x' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                        {% elif 'instagram' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                        {% elif 'facebook' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                        {% elif 'telegram' in ic %}
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                                        {% else %}
+                                        <span>🔗</span>
+                                        {% endif %}
+                                    </span>
+                                    <span>{{ s.name }}</span>
+                                    <span class="arrow">↗</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Contact Form -->
+                    <div class="contact-form-col">
+                        <form id="contact-form" class="contact-form-card" novalidate>
+                            <h3 class="form-title">Send a Direct Message</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-name">Your Full Name <span class="req">*</span></label>
+                                    <input type="text" id="form-name" name="name" placeholder="Jane Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email">Your Email Address <span class="req">*</span></label>
+                                    <input type="email" id="form-email" name="email" placeholder="jane@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-subject">Subject</label>
+                                <input type="text" id="form-subject" name="subject" placeholder="Project Inquiry / Job Opportunity">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-message">Your Message <span class="req">*</span></label>
+                                <textarea id="form-message" name="message" rows="5" placeholder="Hi Alex, I would love to talk about..." required></textarea>
+                            </div>
+
+                            <div class="form-footer">
+                                <button type="submit" class="btn btn-primary btn-submit" id="submit-form-btn">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-spinner" style="display: none;">⏳</span>
+                                </button>
+                                <span class="form-status-msg" id="form-status-msg"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand-symbol">{{ data.brand.logo_symbol if data.brand else '⚡' }}</span>
+                    <span class="brand-text">{{ data.brand.logo_text if data.brand else 'Alex.dev' }}</span>
+                    <p class="footer-tagline">{{ data.brand.tagline }}</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 {{ data.hero.name }}. All rights reserved. Crafted with Python & Modern CSS.</p>
+                <div class="footer-actions">
+                    <button type="button" class="btn-back-to-top" id="back-to-top" title="Back to top">
+                        <span>↑</span> Top
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= PROJECT QUICK VIEW MODAL ================= -->
+    <div id="project-modal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body" id="modal-project-content">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= LIVE IN-BROWSER EDITOR MODAL / DRAWER ================= -->
+    <div id="editor-modal" class="editor-backdrop" aria-hidden="true">
+        <div class="editor-drawer">
+            <div class="editor-header">
+                <div class="editor-header-title">
+                    <span class="editor-icon">⚡</span>
+                    <div>
+                        <h3>Live Portfolio Editor</h3>
+                        <p>Modify your website information and save directly to Python backend</p>
+                    </div>
+                </div>
+                <div class="editor-header-actions">
+                    <button type="button" class="btn btn-sm btn-outline" id="reset-default-btn" title="Reset to template defaults">Reset Default</button>
+                    <button type="button" class="btn btn-sm btn-primary" id="save-portfolio-btn">💾 Save Changes</button>
+                    <button type="button" class="editor-close-btn" id="editor-close-btn">&times;</button>
+                </div>
+            </div>
+
+            <!-- Editor Navigation Tabs -->
+            <div class="editor-tabs-bar">
+                <button type="button" class="editor-tab-btn active" data-tab="tab-general">👤 Basic & Hero</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-about">📖 About Me</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-skills">⚡ Skills</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-projects">🚀 Projects</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-experience">💼 Experience</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-contact">📬 Contact & Social</button>
+                <button type="button" class="editor-tab-btn" data-tab="tab-raw">📝 Raw JSON</button>
+            </div>
+
+            <!-- Editor Tab Content Panels -->
+            <div class="editor-body">
+                <!-- Tab 1: General & Hero -->
+                <div class="editor-pane active" id="tab-general">
+                    <div class="editor-section">
+                        <h4>Brand & Site Info</h4>
+                        <div class="editor-form-grid">
+                            <div class="field-group">
+                                <label>Logo Symbol</label>
+                                <input type="text" id="edit-brand-symbol" class="editor-input">
+                            </div>
+                            <div class="field-group">
+                                <label>Logo / Brand Text</label>
+                                <input type="text" id="edit-brand-text" class="editor-input">
+                            </div>
+                            <div class="field-group full-width">
+                                <label>Brand Subtitle / Tagline</label>
+                                <input type="text" id="edit-brand-tagline" class="editor-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-section">
+                        <h4>Hero Section</h4>
+                        <div class="editor-form-grid">
+                            <div class="field-group">
+                                <label>Greeting</label>
+                                <input type="text" id="edit-hero-greeting" class="editor-input">
+                            </div>
+                            <div class="field-group">
+                                <label>Your Full Name</label>
+                                <input type="text" id="edit-hero-name" class="editor-input">
+                            </div>
+                            <div class="field-group full-width">
+                                <label>Roles (comma-separated for animated typing)</label>
+                                <input type="text" id="edit-hero-roles" class="editor-input">
+                            </div>
+                            <div class="field-group full-width">
+                                <label>Status / Availability Text</label>
+                                <input type="text" id="edit-hero-status" class="editor-input">
+                            </div>
+                            <div class="field-group full-width">
+                                <label>Hero Bio / Catchphrase</label>
+                                <textarea id="edit-hero-bio" class="editor-textarea" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-section">
+                        <h4>Hero Key Metrics (4 items)</h4>
+                        <div class="metrics-editor-grid" id="metrics-editor-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: About Me -->
+                <div class="editor-pane" id="tab-about">
+                    <div class="editor-section">
+                        <h4>About Details</h4>
+                        <div class="field-group">
+                            <label>Headline</label>
+                            <input type="text" id="edit-about-headline" class="editor-input">
+                        </div>
+                        <div class="field-group">
+                            <label>Bio Paragraphs (one per line)</label>
+                            <textarea id="edit-about-paragraphs" class="editor-textarea" rows="6"></textarea>
+                        </div>
+                        <div class="field-group">
+                            <label>Highlights / Core Principles (one per line)</label>
+                            <textarea id="edit-about-highlights" class="editor-textarea" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Skills -->
+                <div class="editor-pane" id="tab-skills">
+                    <div class="editor-section-header-flex">
+                        <h4>Manage Skills</h4>
+                        <button type="button" class="btn btn-sm btn-outline" id="add-skill-btn">+ Add Skill</button>
+                    </div>
+                    <div id="skills-editor-container" class="items-editor-container">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Tab 4: Projects -->
+                <div class="editor-pane" id="tab-projects">
+                    <div class="editor-section-header-flex">
+                        <h4>Manage Projects</h4>
+                        <button type="button" class="btn btn-sm btn-outline" id="add-project-btn">+ Add Project</button>
+                    </div>
+                    <div id="projects-editor-container" class="items-editor-container">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Tab 5: Experience -->
+                <div class="editor-pane" id="tab-experience">
+                    <div class="editor-section-header-flex">
+                        <h4>Work & Education Timeline</h4>
+                        <button type="button" class="btn btn-sm btn-outline" id="add-experience-btn">+ Add Item</button>
+                    </div>
+                    <div id="experience-editor-container" class="items-editor-container">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Tab 6: Contact & Social -->
+                <div class="editor-pane" id="tab-contact">
+                    <div class="editor-section">
+                        <h4>Contact Details</h4>
+                        <div class="editor-form-grid">
+                            <div class="field-group">
+                                <label>Email</label>
+                                <input type="email" id="edit-contact-email" class="editor-input">
+                            </div>
+                            <div class="field-group">
+                                <label>Phone</label>
+                                <input type="text" id="edit-contact-phone" class="editor-input">
+                            </div>
+                            <div class="field-group">
+                                <label>Location</label>
+                                <input type="text" id="edit-contact-location" class="editor-input">
+                            </div>
+                            <div class="field-group">
+                                <label>Response Time</label>
+                                <input type="text" id="edit-contact-response" class="editor-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 7: Raw JSON -->
+                <div class="editor-pane" id="tab-raw">
+                    <div class="editor-section">
+                        <div class="editor-section-header-flex">
+                            <h4>Direct JSON Configuration</h4>
+                            <div class="raw-actions">
+                                <button type="button" class="btn btn-sm btn-outline" id="format-json-btn">Format JSON</button>
+                                <button type="button" class="btn btn-sm btn-outline" id="copy-json-btn">Copy JSON</button>
+                            </div>
+                        </div>
+                        <p class="editor-help-text">You can edit the full configuration directly as raw JSON or paste your own data here.</p>
+                        <textarea id="raw-json-editor" class="raw-json-textarea" spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Editor Drawer Footer -->
+            <div class="editor-footer">
+                <div class="editor-footer-hint">
+                    Changes are synced with <code>data/portfolio.json</code> in your project.
+                </div>
+                <div class="editor-footer-buttons">
+                    <button type="button" class="btn btn-outline" id="editor-cancel-btn">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-portfolio-btn-footer">Save & Apply Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Live Edit Quick Trigger Button -->
+    <div class="floating-edit-trigger" id="floating-edit-btn" title="Click to customize portfolio template">
+        <span class="floating-icon">✏️</span>
+        <span class="floating-label">Customize Template</span>
+    </div>
+
+    <!-- Global Application Scripts -->
+    <script>
+        // Inject current server data for client-side live editing
+        window.PORTFOLIO_DATA = {{ data | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+</body>
+</html>
